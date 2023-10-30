@@ -1,4 +1,4 @@
-package ru.mpei;
+package ru.mpei.Laboratory_2;
 
 import java.util.ArrayList;
 import java.util.List;
