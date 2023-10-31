@@ -45,12 +45,11 @@ public class InitiateDistributedCalculation extends TickerBehaviour {
         if (count == 1) {
             ACLMessage receive = myAgent.receive(MessageTemplate.MatchPerformative(ACLMessage.PROPOSE));
             if (receive != null) {
-                if (receive.getPerformative() == ACLMessage.PROPOSE) {
-                    this.messageAllAgents++;
-                    this.sumXDif += Double.parseDouble(receive.getContent().split(",")[0]);
-                    this.sumX += Double.parseDouble(receive.getContent().split(",")[1]);
-                    this.sumXSum += Double.parseDouble(receive.getContent().split(",")[2]);
-                }
+                this.messageAllAgents++;
+                this.sumXDif += Double.parseDouble(receive.getContent().split(",")[0]);
+                this.sumX += Double.parseDouble(receive.getContent().split(",")[1]);
+                this.sumXSum += Double.parseDouble(receive.getContent().split(",")[2]);
+
                 if (this.messageAllAgents == 3) {
                     count++;
                     System.out.println(sumXDif + " " + sumX + " " + sumXSum);
