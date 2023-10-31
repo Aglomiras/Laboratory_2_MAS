@@ -20,9 +20,14 @@ public class CatchInitiative extends Behaviour {
             System.out.println("Значения x и delta: " + Double.parseDouble(receive.getContent().split(",")[0]) + " " +
                     Double.parseDouble(receive.getContent().split(",")[1]));
 
-            myAgent.addBehaviour(new InitiateDistributedCalculation(this.getAgent(), 2000,
-                    Double.parseDouble(receive.getContent().split(",")[0]),
-                    Double.parseDouble(receive.getContent().split(",")[1])));
+            if (Double.parseDouble(receive.getContent().split(",")[1]) < 0.001) {
+                System.out.println("Стоп");
+            } else {
+                myAgent.addBehaviour(new InitiateDistributedCalculation(this.getAgent(), 500,
+                        Double.parseDouble(receive.getContent().split(",")[0]),
+                        Double.parseDouble(receive.getContent().split(",")[1])));
+            }
+
         } else {
             block();
         }

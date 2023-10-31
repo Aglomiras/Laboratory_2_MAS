@@ -10,7 +10,7 @@ public class FunctionAgent extends Agent {
         System.out.println("I is " + getLocalName() + " born!");
 
         if (this.getLocalName().equals("Agent1")) {
-            this.addBehaviour(new InitiateDistributedCalculation(this, 2000, randomNumbers(), randomNumbers()));
+            this.addBehaviour(new InitiateDistributedCalculation(this, 500, randomNumbers(), randomNumbers()));
         }
         this.addBehaviour(new CalcMyFunction());
         this.addBehaviour(new CatchInitiative());

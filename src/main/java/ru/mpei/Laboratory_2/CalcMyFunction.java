@@ -38,9 +38,9 @@ public class CalcMyFunction extends Behaviour {
             String argStr = "";
             for (int i = 0; i < arg.size(); i++) {
                 if (i != arg.size() -1 ) {
-                    argStr = argStr + String.valueOf(arg.get(i)) + ",";
+                    argStr = argStr + arg.get(i) + ",";
                 } else {
-                    argStr = argStr + String.valueOf(arg.get(i));
+                    argStr = argStr + arg.get(i);
                 }
             }
 

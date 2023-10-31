@@ -43,7 +43,7 @@ public class InitiateDistributedCalculation extends TickerBehaviour {
             count++;
         }
         if (count == 1) {
-            ACLMessage receive = myAgent.receive();
+            ACLMessage receive = myAgent.receive(MessageTemplate.MatchPerformative(ACLMessage.PROPOSE));
             if (receive != null) {
                 if (receive.getPerformative() == ACLMessage.PROPOSE) {
                     this.messageAllAgents++;
@@ -73,14 +73,13 @@ public class InitiateDistributedCalculation extends TickerBehaviour {
             String myAstel = "";
 
             boolean flag = true;
-            while (flag == true) {
+            while (flag) {
                 Random r = new Random();
                 int arg = r.nextInt(agents.length);
                 myAstel = agents[arg];
-                if (myAstel != myAgent.getLocalName()) {
+
+                if (!myAstel.equals(myAgent.getLocalName())) {
                     flag = false;
-                } else {
-                    flag = true;
                 }
             }
 
